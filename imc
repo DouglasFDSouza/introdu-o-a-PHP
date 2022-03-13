@@ -1,0 +1,17 @@
+<?php
+
+$altura = 1.76;
+$peso = 53;
+$result = $peso / $altura**2;
+
+if ($result < 18.5){
+    echo "Seu IMC é $result, você esta abaixo do peso.";
+} elseif ($result >= 18.5 && $result <= 24.9) {
+    echo "Seu IMC é $result, você esta com o peso normal.";
+} elseif ($result >= 25 && $result <= 29.9){
+    echo "Seu IMC é $result, você esta com sobrepeso.";
+} elseif ($result >= 30 && $result <= 39.9) {
+    echo "Seu IMC é $result, você esta com obesidade.";
+} else {
+    echo "Seu IMC é $result, você esta com obesidade grave";
+}
