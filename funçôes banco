@@ -1,0 +1,24 @@
+<?php
+
+function sacar($conta, $valorSacar){
+    if ($valorSacar > $conta['saldo']){
+        exibeMensagem("Você não pode sacar") ;
+    } else {
+        $conta['saldo'] -= $valorSacar;
+    }
+    return $conta;
+}
+
+function depositar ($conta, $valoDepositar){
+    if ($valoDepositar > 0){
+        $conta['saldo'] += $valoDepositar;
+    }else{
+        exibeMensagem("Deposito deve ser positivo") ;
+    }
+   
+    return $conta;
+}
+
+function exibeMensagem ($mensagem){
+    echo $mensagem . PHP_EOL;
+}
