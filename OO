@@ -1,0 +1,30 @@
+<?php
+
+class conta{
+    public string $cpfTitular;
+    public string $nomeTitular;
+    public float $saldo;
+
+    public function sacar (float $valorASacar){
+        if ($valorASacar > $this->saldo){
+            echo "Saldo indisponível";
+        } else {
+            $this->saldo -= $valorASacar;
+        }
+    }
+    public function depositar (float $valoADepositar):void{
+        if($valoADepositar < 0){
+            echo "Valor precisa ser positivo.";
+        } else {
+            $this->saldo += $valoADepositar;
+        }
+    }
+    public function transferir (float $valorATransferir, conta $contaDestino):void{
+        if ($valorATransferir > $this->saldo){
+            echo "saldo indisponivel.";
+        } else {
+            $this->sacar($valorATransferir);
+            $contaDestino->depositar($valorATransferir);
+        }
+    }
+}
